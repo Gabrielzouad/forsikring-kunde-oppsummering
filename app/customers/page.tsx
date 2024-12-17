@@ -51,20 +51,24 @@ export default function Page() {
   return (
     <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
       <div className='flex justify-between items-center mb-6'>
-        <h1 className='text-3xl font-semibold'>Customers</h1>
+        <h1 className='text-3xl font-semibold'>Kunder</h1>
         <Button>
-          <PlusCircle className='mr-2 h-4 w-4' />{' '}
-          <Link href={'/customers/new'}> Add New Customer </Link>
+          <Link
+            href={'/customers/new'}
+            className='flex justify-center items-center'
+          >
+            <PlusCircle className='mr-2 h-4 w-4' />
+            <p>Legg til en ny kunde</p>
+          </Link>
         </Button>
       </div>
       <div className='rounded-md border'>
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Name</TableHead>
-              <TableHead>Email</TableHead>
-              <TableHead>Policy</TableHead>
-              <TableHead>Actions</TableHead>
+              <TableHead>Navn</TableHead>
+              <TableHead>Epost</TableHead>
+              <TableHead>Extra</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -72,11 +76,10 @@ export default function Page() {
               <TableRow key={customer.id}>
                 <TableCell>{customer.name}</TableCell>
                 <TableCell>{customer.email}</TableCell>
-                <TableCell>{customer.policy}</TableCell>
                 <TableCell>
                   <Link href={`/dashboard/customers/${customer.id}`}>
                     <Button variant='outline' size='sm'>
-                      View Details
+                      Les detaljer
                     </Button>
                   </Link>
                 </TableCell>
